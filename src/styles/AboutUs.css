@@ -451,7 +451,7 @@
     gap: 16px;
   }
   .about-value-card { padding: 26px 24px; }
-}
+
 
 @media (max-width: 480px) {
   .about-hero { padding: 90px 14px 36px; }
