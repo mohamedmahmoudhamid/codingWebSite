@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="footer-title">Quick Links</h4>
             <ul className="footer-links">
-              <li><Link to="/home" onClick={scrollToPageTop}>Home</Link></li>
+              <li><Link to="/" onClick={scrollToPageTop}>Home</Link></li>
               <li><Link to="/services" onClick={scrollToPageTop}>Services</Link></li>
               <li><Link to="/aboutus" onClick={scrollToPageTop}>About Us</Link></li>
               <li><Link to="/contact" onClick={scrollToPageTop}>Contact</Link></li>

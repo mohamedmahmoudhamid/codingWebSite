@@ -16,7 +16,7 @@ const NotFound = () => {
                 </p>
 
                 <div className="not-found-actions">
-                    <Link className="not-found-primary" to="/home">
+                    <Link className="not-found-primary" to="/">
                         Go Home
                     </Link>
                     <Link className="not-found-secondary" to="/services">
