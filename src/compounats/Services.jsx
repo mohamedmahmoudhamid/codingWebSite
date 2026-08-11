@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Services.css';
+import { Link } from 'react-router-dom';
 
 const services = [
     {
@@ -89,6 +90,10 @@ const Services = () => {
                                         <li key={feature}>{feature}</li>
                                     ))}
                                 </ul>
+                                <br />
+                                   <Link className="product-action" to="/contact">
+                                Request 
+                            </Link>
                             </div>
                         </div>
                     </div>

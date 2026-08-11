@@ -3,6 +3,7 @@ import Card from "./Card";
 import CountUp from "./CountUp";
 import "../styles/Users.css";
 
+
 const Users = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -295,6 +296,7 @@ const Users = () => {
           <p className="section-subtitle">
             Each member brings a unique superpower to the table
           </p>
+       
         </div>
 
         <div className="team-grid">
@@ -312,6 +314,7 @@ const Users = () => {
                 Email={item.email}
                 role={item.role}
               />
+              
             </div>
           ))}
         </div>

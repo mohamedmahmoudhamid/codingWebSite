@@ -1,4 +1,4 @@
-import React, { useState ,} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
@@ -18,12 +18,14 @@ const Navbar = () => {
 
     const getActiveSection = () => {
         const pathname = location.pathname;
-        if (pathname === '/') {
+        if (pathname === '/' || pathname === '/home') {
             return 'home';
         } else if (pathname.includes('/contact')) {
             return 'contact';
         } else if (pathname.includes('/services')) {
             return 'services';
+        } else if (pathname.includes('/products') || pathname.includes('/details')) {
+            return 'products';
         } else if (pathname.includes('/aboutus')) {
             return 'about';
         }
@@ -46,6 +48,17 @@ const Navbar = () => {
     };
 
     const isActive = (section) => activeSection === section;
+
+    useEffect(() => {
+        setIsOpen(false);
+        document.body.style.overflow = "unset";
+    }, [location.pathname]);
+
+    useEffect(() => {
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
 
     return (
         <nav className="navbar">
@@ -72,7 +85,7 @@ const Navbar = () => {
                 <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
                     <li className="navbar-item">
                         <Link 
-                            to="/" 
+                            to="/home" 
                             className={`navbar-link ${isActive('home') ? 'active' : ''}`} 
                             onClick={closeMenu}
                         >
@@ -104,6 +117,15 @@ const Navbar = () => {
                             onClick={closeMenu}
                         >
                             About
+                        </Link>
+                    </li>
+                    <li className="navbar-item">
+                        <Link 
+                            to="/products" 
+                            className={`navbar-link ${isActive('products') ? 'active' : ''}`} 
+                            onClick={closeMenu}
+                        >
+                            Products
                         </Link>
                     </li>
                 </ul>
