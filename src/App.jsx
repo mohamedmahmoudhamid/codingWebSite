@@ -15,7 +15,7 @@ import SignIn from './compounats/singin';
 import UserProfile from './compounats/UserProfile';
 import { AuthProvider } from './context/context';
 import { ThemeProvider } from './context/themeContext';
-
+import ScrollToTop from './compounats/ScrollToTop';
 const defaultUser = {
   name: "Alex Johnson",
   email: "alex.johnson@nexuscraft.dev",
@@ -87,6 +87,7 @@ function App() {
 
   return (
     <BrowserRouter>
+     <ScrollToTop /> 
       <ThemeProvider value={{ theme, setTheme }}>
         <AuthProvider
           value={{
