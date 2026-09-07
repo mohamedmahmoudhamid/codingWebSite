@@ -240,3 +240,19 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.6rem !important;
   }
 }
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-wrapper,
+.services-section,
+.profile-page ,.not-found-page ,.contact-section,.about-page ,.products-page {
+  animation: pageFadeIn 0.5s ease-in-out;
+}
