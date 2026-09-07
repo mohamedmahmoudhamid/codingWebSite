@@ -1,5 +1,4 @@
 import { createContext } from "react";
 
-export var AuthContext = createContext()
-
-export var AuthProvider = AuthContext.Provider
+export var AuthContext = createContext();
+export var AuthProvider = AuthContext.Provider;

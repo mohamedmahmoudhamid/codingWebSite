@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaEnvelope, FaArrowRight, FaConnectdevelop } from 'react-icons/fa6';
 import '../styles/Card.css';
 
 const Card = ({ id, img, userName, description, Email, role }) => {
@@ -7,8 +8,8 @@ const Card = ({ id, img, userName, description, Email, role }) => {
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -18;
     setTilt({ x, y });
   };
 
@@ -29,16 +30,12 @@ const Card = ({ id, img, userName, description, Email, role }) => {
         transform: `perspective(800px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
       }}
     >
-      {/* Glow effect */}
       <div className="card-glow"></div>
 
-      {/* Card body */}
       <div className="card-body p-3">
-        {/* Top accent line */}
         <div className="card-accent-line"></div>
 
-        {/* Header */}
-        <div className="card-header ">
+        <div className="card-header">
           <div className="card-avatar-wrapper">
             <img src={img} alt={userName} className="card-avatar" />
             <div className="card-avatar-ring"></div>
@@ -48,45 +45,28 @@ const Card = ({ id, img, userName, description, Email, role }) => {
           <div className="card-badge-id">#{id}</div>
         </div>
 
-        {/* Info */}
         <div className="card-info">
           <div className="card-role mt-1">{role}</div>
           <h3 className="card-name">{userName}</h3>
           <p className="card-desc">{description}</p>
         </div>
 
-        {/* Divider */}
         <div className="card-divider"></div>
 
-        {/* Footer */}
         <div className="card-footer">
           <div className="card-email-block">
             <div className="email-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4.75 7.75A2.75 2.75 0 0 1 7.5 5h9a2.75 2.75 0 0 1 2.75 2.75v8.5A2.75 2.75 0 0 1 16.5 19h-9a2.75 2.75 0 0 1-2.75-2.75v-8.5Z"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                />
-                <path
-                  d="m6.25 8.25 4.2 3.35a2.5 2.5 0 0 0 3.1 0l4.2-3.35"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <FaEnvelope />
             </div>
             <span className="card-email-text">{Email}</span>
           </div>
+
           <button
             className="card-btn"
-            onClick={() => alert(`Connecting with ${userName}...`)}
+            onClick={() => alert(`Connecting with ${userName} (${Email})...`)}
           >
             <span>Connect</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <FaArrowRight />
           </button>
         </div>
       </div>

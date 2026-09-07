@@ -1,0 +1,416 @@
+/* ============================================
+   AUTH PAGES (SIGN UP & LOGIN) STYLES
+   ============================================ */
+
+.auth-page {
+  min-height: calc(100vh - 70px);
+  background: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.orb-a {
+  width: 400px;
+  height: 400px;
+  top: 5%;
+  left: 10%;
+  background: var(--accent-primary);
+  opacity: 0.18;
+}
+
+.orb-b {
+  width: 450px;
+  height: 450px;
+  bottom: 5%;
+  right: 8%;
+  background: var(--accent-secondary);
+  opacity: 0.2;
+}
+
+/* ---- 3D Glass Card ---- */
+.auth-card-3d {
+  width: 100%;
+  max-width: 720px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  padding: 44px 48px;
+  box-shadow: var(--card-shadow);
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, background-color 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-primary);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.auth-card-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.auth-card-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   AVATAR UPLOAD SECTION
+   ============================================ */
+
+.avatar-upload-section {
+  margin-bottom: 24px;
+}
+
+.avatar-upload-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.avatar-upload-layout {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Preview Circle */
+.avatar-preview-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-preview-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.15), 0 8px 24px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.avatar-uploaded-badge {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+/* Drop Zone */
+.avatar-dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: 18px;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  min-height: 120px;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.04));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border-radius: 16px;
+}
+
+.avatar-dropzone:hover,
+.avatar-dropzone.drag-over {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.avatar-dropzone:hover::before,
+.avatar-dropzone.drag-over::before {
+  opacity: 1;
+}
+
+.avatar-dropzone.drag-over {
+  background: rgba(99, 102, 241, 0.06);
+  transform: scale(1.01);
+}
+
+.dropzone-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.dropzone-icon {
+  font-size: 1.4rem;
+  color: var(--accent-primary);
+}
+
+.dropzone-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.dropzone-hint {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 4px;
+}
+
+.dropzone-browse {
+  color: var(--accent-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.dropzone-formats {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Upload Success State */
+.dropzone-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: bounceIn 0.4s ease;
+}
+
+.success-icon {
+  font-size: 2.2rem;
+  color: #22c55e;
+}
+
+.dropzone-success span {
+  font-weight: 700;
+  color: #22c55e;
+  font-size: 0.95rem;
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ---- Form layout ---- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.input-group-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group-custom label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-group-custom input,
+.input-group-custom textarea {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 13px 18px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.input-group-custom input:focus,
+.input-group-custom textarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+  background: var(--bg-card);
+}
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.password-toggle:hover {
+  color: var(--accent-primary);
+}
+
+.btn-full {
+  width: 100%;
+  padding: 15px;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.auth-card-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.auth-card-footer p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.auth-card-footer a {
+  color: var(--accent-primary);
+  font-weight: 700;
+  margin-left: 5px;
+  transition: opacity 0.2s;
+}
+
+.auth-card-footer a:hover {
+  opacity: 0.8;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 760px) {
+  .auth-card-3d {
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-upload-layout {
+    grid-template-columns: 80px 1fr;
+    gap: 14px;
+  }
+
+  .avatar-preview-img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .avatar-dropzone {
+    min-height: 100px;
+    padding: 16px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 32px 14px;
+  }
+
+  .auth-card-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .avatar-upload-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .avatar-preview-wrap {
+    justify-content: center;
+  }
+}

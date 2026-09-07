@@ -1,8 +1,92 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Card from "./Card";
 import CountUp from "./CountUp";
 import "../styles/Users.css";
+import { ThemeContext } from "../context/themeContext";
+import { Link } from "react-router-dom";
+import {
+  FaArrowRight,
+  FaUsers,
+  FaChevronLeft,
+  FaChevronRight,
+  FaBoxOpen,
+} from "react-icons/fa6";
+import { HiSparkles } from "react-icons/hi2";
 
+const teamMembers = [
+  {
+    id: 1,
+    name: "Ahmed Hassan",
+    email: "ahmed.hassan@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    description: "Lead Frontend Architect specializing in React 19, 3D WebGL, and design systems.",
+    role: "Frontend Architect",
+  },
+  {
+    id: 2,
+    name: "Sara Ali",
+    email: "sara.ali@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    description: "Growth & Product Marketing Strategist driving digital user acquisition and brand systems.",
+    role: "Product Marketing",
+  },
+  {
+    id: 3,
+    name: "Mohamed Tarek",
+    email: "mohamed.tarek@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    description: "Principal Backend Engineer building microservices, REST APIs, and database clusters.",
+    role: "Backend Lead",
+  },
+  {
+    id: 4,
+    name: "Nour Magdy",
+    email: "nour.magdy@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    description: "Senior UI/UX Designer creating high-fidelity interactive component libraries and design tokens.",
+    role: "Lead UI/UX",
+  },
+  {
+    id: 5,
+    name: "Youssef Adel",
+    email: "youssef.adel@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    description: "Engineering Project Manager guiding high-velocity product sprints and releases.",
+    role: "Project Manager",
+  },
+  {
+    id: 6,
+    name: "Mariam Samy",
+    email: "mariam.samy@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    description: "Technical Content Strategist documenting developer APIs and architecture guides.",
+    role: "Tech Writer",
+  },
+  {
+    id: 7,
+    name: "Omar Khaled",
+    email: "omar.khaled@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    description: "Data Analytics Engineer crafting KPI dashboards, real-time metrics, and data streams.",
+    role: "Data Analyst",
+  },
+  {
+    id: 8,
+    name: "Hana Mostafa",
+    email: "hana.mostafa@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    description: "Talent & Culture Partner recruiting top-tier software engineers and product designers.",
+    role: "People & HR",
+  },
+  {
+    id: 9,
+    name: "Karim Nasser",
+    email: "karim.nasser@nexuscraft.dev",
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
+    description: "Mobile App Specialist building cross-platform React Native and Android systems.",
+    role: "Mobile Engineer",
+  },
+];
 
 const Users = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,80 +96,7 @@ const Users = () => {
   const heroRef = useRef(null);
   const previewDragStartX = useRef(null);
 
-  const users = [
-    {
-      id: 1,
-      name: "Ahmed Hassan",
-      email: "ahmed.hassan@example.com",
-      image: "https://randomuser.me/api/portraits/men/1.jpg",
-      description: "Frontend developer who enjoys building user interfaces.",
-      role: "Frontend Dev",
-    },
-    {
-      id: 2,
-      name: "Sara Ali",
-      email: "sara.ali@example.com",
-      image: "https://randomuser.me/api/portraits/women/2.jpg",
-      description: "Marketing specialist focused on digital campaigns.",
-      role: "Marketing",
-    },
-    {
-      id: 3,
-      name: "Mohamed Tarek",
-      email: "mohamed.tarek@example.com",
-      image: "https://randomuser.me/api/portraits/men/3.jpg",
-      description: "Backend engineer with experience in APIs.",
-      role: "Backend Dev",
-    },
-    {
-      id: 4,
-      name: "Nour Magdy",
-      email: "nour.magdy@example.com",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-      description: "Graphic designer who creates brand visuals.",
-      role: "Designer",
-    },
-    {
-      id: 5,
-      name: "Youssef Adel",
-      email: "youssef.adel@example.com",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-      description: "Project manager leading software teams.",
-      role: "PM",
-    },
-    {
-      id: 6,
-      name: "Mariam Samy",
-      email: "mariam.samy@example.com",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-      description: "Content writer focused on tech topics.",
-      role: "Content",
-    },
-    {
-      id: 7,
-      name: "Omar Khaled",
-      email: "omar.khaled@example.com",
-      image: "https://randomuser.me/api/portraits/men/7.jpg",
-      description: "Data analyst who works with dashboards.",
-      role: "Data Analyst",
-    },
-    {
-      id: 8,
-      name: "Hana Mostafa",
-      email: "hana.mostafa@example.com",
-      image: "https://randomuser.me/api/portraits/women/8.jpg",
-      description: "HR specialist managing recruitment tasks.",
-      role: "HR Specialist",
-    },
-    {
-      id: 9,
-      name: "Karim Nasser",
-      email: "karim.nasser@example.com",
-      image: "https://randomuser.me/api/portraits/men/9.jpg",
-      description: "Mobile developer building Android apps.",
-      role: "Mobile Dev",
-    },
-  ];
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -107,30 +118,30 @@ const Users = () => {
   }, []);
 
   const stats = [
-    { end: 9,  suffix: '+', label: 'Team Members'  },
-    { end: 50, suffix: '+', label: 'Projects Done'  },
-    { end: 3,  suffix: '+', label: 'Years Active'   },
+    { end: 9, suffix: '+', label: 'Senior Engineers' },
+    { end: 65, suffix: '+', label: 'Products Shipped' },
+    { end: 4, suffix: '+', label: 'Years Innovation' },
   ];
 
-  const previewUser = users[activePreview];
+  const previewUser = teamMembers[activePreview];
 
   const showPreviousPreview = () => {
-    setActivePreview((current) => (current === 0 ? users.length - 1 : current - 1));
+    setActivePreview((current) => (current === 0 ? teamMembers.length - 1 : current - 1));
   };
 
   const showNextPreview = () => {
-    setActivePreview((current) => (current === users.length - 1 ? 0 : current + 1));
+    setActivePreview((current) => (current === teamMembers.length - 1 ? 0 : current + 1));
   };
 
-  const handlePreviewPointerDown = (event) => {
-    previewDragStartX.current = event.clientX;
-    setIsPreviewDragging(true);
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-  };
+const handlePreviewPointerDown = (event) => {
+  if (event.target.closest('.preview-controls')) return; // سيب الأزرار تشتغل عادي
+  previewDragStartX.current = event.clientX;
+  setIsPreviewDragging(true);
+  event.currentTarget.setPointerCapture?.(event.pointerId);
+};
 
   const handlePreviewPointerUp = (event) => {
     if (previewDragStartX.current === null) return;
-
     const dragDistance = event.clientX - previewDragStartX.current;
     previewDragStartX.current = null;
     setIsPreviewDragging(false);
@@ -149,20 +160,17 @@ const Users = () => {
   };
 
   return (
-    <div className="home-page">
+    <div className="home-wrapper">
       {/* Hero Section */}
       <section className="hero-section" ref={heroRef}>
-        {/* Animated background orbs */}
         <div className="orb orb-1"></div>
         <div className="orb orb-2"></div>
         <div className="orb orb-3"></div>
 
-        {/* Floating particles */}
-        {[...Array(15)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div key={i} className={`particle particle-${i + 1}`}></div>
         ))}
 
-        {/* 3D Grid lines */}
         <div className="grid-lines">
           {[...Array(8)].map((_, i) => (
             <div key={i} className="grid-line"></div>
@@ -172,24 +180,24 @@ const Users = () => {
         <div
           className={`hero-content ${isVisible ? "visible" : ""}`}
           style={{
-            transform: `perspective(1000px) rotateX(${-mousePos.y * 0.05}deg) rotateY(${mousePos.x * 0.05}deg)`,
+            transform: `perspective(1000px) rotateX(${-mousePos.y * 0.04}deg) rotateY(${mousePos.x * 0.04}deg)`,
           }}
         >
           <div className="hero-badge">
             <span className="badge-dot"></span>
-            Welcome to Dome
+            <HiSparkles /> NexusCraft Digital Platform
           </div>
 
           <h1 className="hero-title">
-            Meet Our
-            <span className="title-gradient"> Brilliant</span>
+            Crafting Premium
             <br />
-            <span className="title-outline">Team</span>
+            <span className="title-gradient"> Digital Solutions</span> &
+            <br />
+            <span className="title-outline">Products</span>
           </h1>
 
           <p className="hero-subtitle">
-            Talented professionals united by passion, creativity, and a drive to
-            build exceptional digital experiences.
+            An elite studio of developers and designers crafting modern web products, ready-made templates, and scalable infrastructure.
           </p>
 
           <div className="hero-stats">
@@ -205,35 +213,27 @@ const Users = () => {
 
           <div className="hero-actions">
             <button
-              className="btn-primary"
+              className="btn-glow"
               onClick={() =>
                 document
                   .getElementById("team-section")
                   .scrollIntoView({ behavior: "smooth" })
               }
             >
-              <span>Meet the Team</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <span>Explore Team & Products</span>
+              <FaArrowRight />
             </button>
-            <button className="btn-secondary">
-              <span>Learn More</span>
-            </button>
+            <Link to="/products" className="btn-secondary-glow">
+              <FaBoxOpen /> Products Catalog
+            </Link>
           </div>
         </div>
 
-        {/* 3D floating card preview */}
+        {/* 3D floating preview slider card */}
         <div
           className={`hero-visual ${isVisible ? "visible" : ""}`}
           style={{
-            transform: `perspective(1200px) rotateY(${-mousePos.x * 0.08}deg) rotateX(${mousePos.y * 0.08}deg)`,
+            transform: `perspective(1200px) rotateY(${-mousePos.x * 0.06}deg) rotateX(${mousePos.y * 0.06}deg)`,
           }}
         >
           <div
@@ -257,15 +257,24 @@ const Users = () => {
                 <div className="preview-bar">
                   <div
                     className="preview-fill"
-                    style={{ width: `${((activePreview + 1) / users.length) * 100}%` }}
+                    style={{ width: `${((activePreview + 1) / teamMembers.length) * 100}%` }}
                   ></div>
                 </div>
               </div>
             </div>
 
             <div className="preview-controls" aria-label="Team preview slider controls">
+              <button
+                type="button"
+                className="slider-arrow-btn"
+                onClick={showPreviousPreview}
+                aria-label="Previous member"
+              >
+                <FaChevronLeft />
+              </button>
+
               <div className="preview-dots">
-                {users.map((user, index) => (
+                {teamMembers.map((user, index) => (
                   <button
                     key={user.id}
                     className={`preview-dot ${index === activePreview ? "active" : ""}`}
@@ -275,36 +284,38 @@ const Users = () => {
                   ></button>
                 ))}
               </div>
+
+              <button
+                type="button"
+                className="slider-arrow-btn"
+                onClick={showNextPreview}
+                aria-label="Next member"
+              >
+                <FaChevronRight />
+              </button>
             </div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="scroll-indicator">
-          <div className="scroll-mouse">
-            <div className="scroll-wheel"></div>
-          </div>
-          <span>Scroll down</span>
-        </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Showcase Section */}
       <section className="team-section" id="team-section">
         <div className="section-header">
-          <span className="section-tag">Our People</span>
-          <h2 className="section-title">The Dream Team</h2>
+          <span className="section-tag">
+            <FaUsers /> The Craftsmen Behind NexusCraft
+          </span>
+          <h2 className="section-title">Meet Our Engineering Team</h2>
           <p className="section-subtitle">
-            Each member brings a unique superpower to the table
+            Every specialist brings domain expertise, technical rigor, and a passion for clean code.
           </p>
-       
         </div>
 
         <div className="team-grid">
-          {users.map((item, index) => (
+          {teamMembers.map((item, index) => (
             <div
               key={item.id}
               className="card-wrapper"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${index * 0.08}s` }}
             >
               <Card
                 id={item.id}
@@ -314,7 +325,6 @@ const Users = () => {
                 Email={item.email}
                 role={item.role}
               />
-              
             </div>
           ))}
         </div>
