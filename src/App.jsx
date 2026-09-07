@@ -101,7 +101,7 @@ function App() {
         >
           <Navbar />
           <Routes>
-            <Route path="/" index={true} element={<Users />} />
+            <Route path="/"  element={<Users />} />
             <Route path="/services" element={<Services />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/contact" element={<CounactUs />} />
