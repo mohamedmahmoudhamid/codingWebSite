@@ -6,10 +6,14 @@
   min-height: calc(100vh - 80px);
   background: var(--bg-main);
   padding: 50px 24px 80px;
-  max-width: 1300px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+}
+@media (min-width: 768px) {
+  .about-page {
+    padding: 50px 100px 80px;
+  }
 }
 
 /* 3D Ice Cubes Background */
