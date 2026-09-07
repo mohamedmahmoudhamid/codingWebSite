@@ -161,6 +161,7 @@
   font-size: 1.8rem;
   font-weight: 800;
   margin: 0;
+  color: var(--text-primary);
 }
 
 .role-tag {
@@ -270,6 +271,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 14px;
+  color: var(--text-primary);
 }
 
 .tech-chips {
@@ -362,6 +364,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--text-primary);
 }
 
 .widget-stats-list {
@@ -550,6 +553,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--text-primary);
 }
 
 .close-modal-btn {

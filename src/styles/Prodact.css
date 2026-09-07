@@ -32,6 +32,7 @@
   font-size: 2.3rem;
   font-weight: 800;
   margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .products-header p {
@@ -267,6 +268,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 8px;
+  color: var(--text-primary);
 }
 
 .product-content p {
@@ -403,6 +405,7 @@
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .locked-access-card p {
@@ -514,6 +517,7 @@
   font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 14px;
+  color: var(--text-primary);
 }
 
 .details-description {
@@ -562,6 +566,7 @@
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 14px;
+  color: var(--text-primary);
 }
 
 .features-list {
@@ -587,6 +592,7 @@
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .product-stack {
@@ -657,6 +663,7 @@
   }
   .products-header h1 {
     font-size: 1.8rem;
+    color: var(--text-primary);
   }
 }
 @media (max-width: 450px) {
@@ -675,6 +682,7 @@
 
   .product-details-content h1 {
     font-size: 22px;
+    color: var(--text-primary);
   }
 
   .product-details-stats {
