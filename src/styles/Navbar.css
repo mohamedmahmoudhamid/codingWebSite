@@ -280,6 +280,7 @@
 }
 
 /* ---- Hamburger Button ---- */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -293,9 +294,9 @@
   border-radius: 10px;
   cursor: pointer;
   padding: 0;
-  z-index: 1000;
+  z-index: 1010;
   flex-shrink: 0;
-  transition: background 0.2s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(0.68, -0.4, 0.27, 1.4);
 }
 
 .hamburger:hover {
@@ -308,22 +309,33 @@
   height: 2px;
   background-color: var(--text-primary);
   border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.68, -0.4, 0.27, 1.4),
+              opacity 0.25s ease,
+              background-color 0.3s ease,
+              width 0.3s ease;
   display: block;
+}
+
+/* دوران الزرار نفسه وقت الفتح - ده اللي بيدي الإحساس المميز */
+.hamburger.active {
+  transform: rotate(90deg);
+  background: rgba(99, 102, 241, 0.14);
+  border-color: var(--accent-primary);
 }
 
 .hamburger.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
-  
+  background-color: var(--accent-primary);
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
+  transform: scaleX(0) rotate(180deg);
 }
 
 .hamburger.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+  background-color: var(--accent-primary);
 }
 
 /* ============================================
